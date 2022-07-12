@@ -60,3 +60,15 @@
   - Open node.js server
     - `npm install`
     - `node server.js`
+
+## Docker compose
+
+- `docker-compose -f mongo.yml up`
+- `docker-compose -f mongo.yml down`
+  - `docker network ls`
+  - `docker ps`
+
+## Dockerfile
+
+- Blueprint for creating docker images
+- ``
