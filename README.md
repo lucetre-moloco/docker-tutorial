@@ -41,6 +41,7 @@
       --net mongo-network \
       mongo
     ```
+  - `docker start mongodb`
   - `docker logs mongodb`
 - [Run mongo express](https://hub.docker.com/_/mongo-express)
   - ```
@@ -53,4 +54,9 @@
       --net mongo-network \
       mongo-express
     ```
+  - `docker start mongo-express`
   - `docker logs mongo-express`
+  - Connect [localhost:8081](http://localhost:8081)
+  - Open node.js server
+    - `npm install`
+    - `node server.js`
