@@ -6,6 +6,7 @@
 
 - `docker pull redis`
 - `docker images`
+  - `docker rmi <image-id>`
 - `docker run redis`
 - `docker ps`
 - detach mode `docker run -d redis`
@@ -71,4 +72,30 @@
 ## Dockerfile
 
 - Blueprint for creating docker images
-- ``
+- Image arch
+  - `my-app:1.0` on `node:13-alpine` on `alpine:3.10`
+- Always be **Dockerfile** as a filename
+- `docker build -t my-app:1.0 .`
+  - `docker images`
+  - `docker ps -a`
+  - `docker rm <container-id>`
+  - `docker rmi <image-id>`
+- `docker run my-app:1.0`
+- `docker logs <container-id>`
+- `docker exec -it <container-id> /bin/sh` or `/bin/bash`
+
+## Docker Registry
+
+- Create repository `my-app` via AWS-ECR
+- Login & get AWS-ECR credentials
+  - Install AWS-CLI
+  - Get IAM access & secret key w/ _AmazonEC2ContainerRegistryFullAccess_
+  - `aws configure`
+- Image naming docker registries
+  - `docker pull mongo:4.2` equals to `docker pull docker.io/library/mongo:4.2`
+- Push our image into repository
+  - `docker tag my-app:1.0 <aws-ecr-url>/<name>:<tag>`
+  - `docker images`
+  - `docker push <aws-ecr-url>/<name>:<tag>`
+- Put them all together into `my-app.yml`
+  - `docker compose -f my-app.yml up`
